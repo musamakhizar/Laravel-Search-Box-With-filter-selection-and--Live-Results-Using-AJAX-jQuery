@@ -22,8 +22,8 @@ class SearchController extends Controller
         {
             $output="";
             //-- fetching results based on the "search_selection" and value "$request->search" with where clause
-            $accounts=DB::table('re_accounts')->where($request->search_selection,'LIKE','%'.$request->search."%")->get();
-            
+            //$accounts=DB::table('re_accounts')->where($request->search_selection,'LIKE','%'.$request->search."%")->get();
+            $accounts = Search::where($request->search_selection,'LIKE','%'.$request->search."%")->get(); //using model
             if($accounts)
             {
                 foreach ($accounts as $account) 
