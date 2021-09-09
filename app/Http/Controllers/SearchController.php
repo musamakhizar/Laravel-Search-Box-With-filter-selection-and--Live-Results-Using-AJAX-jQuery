@@ -21,7 +21,9 @@ class SearchController extends Controller
         if($request->ajax())
         {
             $output="";
+            //-- fetching results based on the "search_selection" and value "$request->search" with where clause
             $accounts=DB::table('re_accounts')->where($request->search_selection,'LIKE','%'.$request->search."%")->get();
+            
             if($accounts)
             {
                 foreach ($accounts as $account) 
@@ -42,7 +44,7 @@ class SearchController extends Controller
 
                                 
                 }
-                return Response($output);
+                return Response($output); //return response to ajax call
             }
         }
     }

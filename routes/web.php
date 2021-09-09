@@ -18,5 +18,5 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/','SearchController@index');
-Route::get('/search','SearchController@search');
+Route::get('/','SearchController@index'); //view search page
+Route::get('/search','SearchController@search'); //ajax request sending
